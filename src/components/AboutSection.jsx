@@ -3,9 +3,9 @@ import React from "react"
 export default function AboutSection() {
   return (
     <section
-      id="about"
-      className="w-full min-h-screen flex items-center px-6 md:px-16 py-20 bg-gradient-to-b from-slate-900 to-slate-950"
-    >
+  id="about"
+  className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 bg-transparent"
+>
       <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
         {/* LEFT */}
         <div className="space-y-6 animate-fadeInLeft">

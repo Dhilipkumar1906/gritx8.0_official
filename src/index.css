@@ -30,9 +30,7 @@
   animation: fadeInUp 1s ease-out forwards;
 }
 
-body {
-  @apply bg-slate-900 text-white;
-}
+
 @keyframes wave {
   0%, 60%, 100% { transform: translateY(0); }
   30% { transform: translateY(-15px); }
@@ -42,6 +40,8 @@ body {
   animation: wave 3s ease-in-out 2;
 }
 
+
+/* Opening animation (width expand) */
 @keyframes navOpen {
   0% {
     transform: scaleX(0);

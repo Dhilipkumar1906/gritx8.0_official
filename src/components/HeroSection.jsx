@@ -1,5 +1,7 @@
 import React from 'react'
 import Countdown from './Countdown'
+import sairamLogo from "../assets/sairamlogo.png"
+import nssLogo from "../assets/nsslogo.webp"
 
 const logos = [
   '/logo1.png','/logo2.png','/logo3.png','/logo4.png',
@@ -8,14 +10,33 @@ const logos = [
 
 export default function HeroSection(){
   return (
-    <section id="home" className="relative w-full min-h-screen flex flex-col items-center px-6 md:px-16">
-      
+    <section
+      id="home"
+      className="relative w-full min-h-screen flex flex-col items-center px-6 md:px-16 overflow-hidden bg-transparent"
+    > 
+      {/* 🔹 Top corner logos */}
+      <div className="absolute top-4 left-4 w-14 h-14 md:w-16 md:h-16">
+        <img src={sairamLogo} alt="Sairam Logo" 
+          className="absolute top-5 left-6 w-16 h-16 object-contain drop-shadow-lg" 
+        />
+      </div>
+      <div className="absolute top-4 right-4 w-14 h-14 md:w-16 md:h-16">
+        <img 
+          src={nssLogo} alt="NSS Logo" 
+          className="absolute top-5 right-6 w-16 h-16 object-contain drop-shadow-lg" 
+        />
+      </div>
+
       {/* College Title */}
       <div className="text-center mt-28 mb-10 px-4 space-y-2 animate-fadeInUp">
         <h2 className="text-2xl md:text-4xl font-serif italic font-bold 
                        text-slate-100 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">
-          Sri Sairam Engineering College
+          Sri Sairam Engineering College 
         </h2>
+        <h3 className="text-xl md:text-3xl font-medium
+                       text-slate-100 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]">
+           National Service Scheme
+        </h3>
         <p className="text-lg md:text-xl font-medium text-cyan-300 drop-shadow-[0_0_6px_rgba(56,189,248,0.6)] tracking-wide">
           Presents
         </p>
@@ -25,17 +46,15 @@ export default function HeroSection(){
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between">
         
         {/* LEFT */}
-        <div className="flex-1 pr-6 md:pr-12 text-center md:text-left">
-     <h1 className="text-[clamp(40px,8vw,140px)] leading-[0.85] font-extrabold text-white flex gap-2">
-  {"GRITX".split("").map((ch, i) => (
-    <span key={i} className="inline-block animate-wave" style={{ animationDelay: `${i * 0.2}s` }}>
-      {ch}
-    </span>
-  ))}
-  <span className="text-gritxAccent animate-wave" style={{ animationDelay: "1s" }}>8.0</span>
-</h1>
-
-
+        <div className="flex-1 pr-6 md:pr-11 text-center md:text-left">
+          <h1 className="text-[clamp(40px,8vw,140px)] leading-[0.85] font-extrabold text-white flex gap-2 font-['Roboto_Slab']">
+            {"GRITX".split("").map((ch, i) => (
+              <span key={i} className="inline-block animate-wave" style={{ animationDelay: `${i * 0.2}s` }}>
+                {ch}
+              </span>
+            ))}
+            <span className="text-gritxAccent animate-wave" style={{ animationDelay: "1s" }}>8.0</span>
+          </h1>
 
           <p className="mt-4 text-slate-300 max-w-xl mx-auto md:mx-0">
             An electrifying campus event — workshops, competitions & showcases. Join us on October 16.
@@ -68,7 +87,7 @@ export default function HeroSection(){
       </div>
 
       {/* Countdown centered below */}
-      <div className="mt-8 flex justify-center">
+      <div className="mt-0.1 flex justify-center">
         <Countdown />
       </div>    
     </section>

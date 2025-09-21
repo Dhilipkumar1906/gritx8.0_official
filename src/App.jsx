@@ -1,17 +1,20 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
-import AboutSection from  "./components/AboutSection"
+import React from "react"
+import Background from "./components/Background"
+import Navbar from "./components/Navbar"
+import HeroSection from "./components/HeroSection"
+import AboutSection from "./components/AboutSection"
+// ... other imports
 
-
-export default function App(){
+function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gritxPanel to-gritxBg text-white">
+    <div className="relative">
+      <Background /> {/* 🔥 Always behind everything */}
       <Navbar />
       <HeroSection />
       <AboutSection />
-      {/* spacer to allow scrolling */}
-      <div className="h-[120vh]"></div>
+      {/* more sections */}
     </div>
   )
 }
+
+export default App
