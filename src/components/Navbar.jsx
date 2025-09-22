@@ -46,6 +46,9 @@ export default function Navbar() {
           <a className={linkClass} href="#ambassadors">
             Ambassadors
           </a>
+          <a className={linkClass} href="#about">
+            About
+          </a>
           <a className={linkClass} href="#contact">
             Contact
           </a>

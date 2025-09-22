@@ -1,0 +1,215 @@
+/* src/EventsPage.css */
+/* Google font (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --page-bg-1: #031726;
+  --page-bg-2: #0b3b5b;
+  --card-shadow: rgba(2, 8, 23, 0.18);
+  --card-radius: 18px;
+}
+
+/* full page */
+.events-page{
+  min-height: 100vh;
+  padding: 48px 64px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, var(--page-bg-1) 0%, var(--page-bg-2) 100%);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #fff;
+}
+
+/* header */
+.events-header {
+  max-width: 1100px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+.events-header h1 {
+  font-size: 36px;
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: #f2f8ff;
+}
+.events-header .subtitle {
+  color: rgba(242,248,255,0.8);
+  margin: 0 0 18px;
+}
+
+/* grid */
+.events-grid{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+  gap: 42px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+  padding-bottom: 80px;
+}
+
+/* each card wrapper (gives room for backdrop) */
+.event-card{
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+/* colored backdrop behind card */
+.card-backdrop{
+  position: absolute;
+  z-index: 1;
+  width: 95%;
+  height: 140px;
+  left: 20px;
+  bottom: -6%;
+  border-radius: 6px;
+  background: var(--backColor, #ff6b6b);
+  box-shadow: 0 16px 32px rgba(2,6,23,0.45);
+}
+
+/* the white card itself */
+.card-inner{
+  --card-w: 360px;
+  z-index: 2;
+  width: clamp(280px, 70%, var(--card-w));
+  background: linear-gradient(180deg, #ffffff 0%, #faf6f2 100%);
+  border-radius: var(--card-radius);
+  padding: 26px 26px 34px;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  transform: rotate(var(--rot, -6deg));
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 300px;
+  overflow: visible;
+}
+
+/* on hover lift and slightly reduce rotation for a subtle effect */
+.event-card:hover .card-inner{
+  transform: translateY(-12px) rotate(calc(var(--rot, -6deg) + 2deg));
+  box-shadow: 0 20px 48px rgba(2,6,23,0.45);
+}
+
+/* emoji - top left */
+.emoji{
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+/* title and desc inside the card */
+.card-title{
+  font-size: 24px;
+  margin: 6px 0 10px;
+  color: #0f1722;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.card-desc{
+  color: #44484a;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  white-space: pre-line;
+}
+
+/* learn button */
+.btn-learn{
+  margin-top: auto;
+  display: inline-block;
+  background: #252525;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  transition: transform 160ms, box-shadow 160ms;
+}
+.btn-learn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.32);
+}
+
+/* responsive tweaks */
+@media (max-width: 880px){
+  .events-page{ padding: 32px; }
+  .events-header h1{ font-size: 28px; }
+}
+@media (max-width: 520px){
+  .card-inner { padding: 20px; }
+  .card-backdrop { height: 120px; left: 8px; right: 8px; }
+}
+
+/* sparkle shower effect */
+.sparkles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* behind cards but above background */
+  background: transparent;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, white, rgba(255,255,255,0));
+  border-radius: 50%;
+  opacity: 0.8;
+  top: -10%;
+  left: 50%;
+  transform: rotate(45deg);
+  animation: shoot 3s linear infinite;
+}
+
+
+
+/* Shooting star animation */
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(400px) translateY(400px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(800px) translateY(800px) rotate(45deg);
+    opacity: 0;
+  }
+}
