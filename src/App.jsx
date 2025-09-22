@@ -29,8 +29,9 @@ function App() {
           element={
             <>
               <HeroSection />
-              <EventsPage />
+              
               <AboutSection />
+              <EventsPage />
               {/* Add other sections here */}
             </>
           }
